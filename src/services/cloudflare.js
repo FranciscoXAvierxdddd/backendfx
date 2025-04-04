@@ -22,17 +22,17 @@ class Cloudflare extends Client{
         const file = fs.createReadStream(path); 
         const formData = new FormData();
         formData.append('file', file);
-        const result =  await this.client.post('/accounts/099726f17444f118b6b6f15c147a3770/images/v1', formData)
+        const result =  await this.client.post('/accounts/fce33b81c160d8b250a03d21653d8266/images/v1', formData)
         fs.unlinkSync(path);
         return result;
     }
 
     deleteImage(imageId) {
-        return this.client.delete(`/accounts/0099726f17444f118b6b6f15c147a3770/images/v1/${imageId}`);
+        return this.client.delete(`/accounts/fce33b81c160d8b250a03d21653d8266/images/v1/${imageId}`);
     }
 
     async getImages() {
-        const result = await this.client.get('/accounts/099726f17444f118b6b6f15c147a3770/images/v1');
+        const result = await this.client.get('/accounts/fce33b81c160d8b250a03d21653d8266/images/v1');
         return result.data.result;
     }
 }
